@@ -12,7 +12,7 @@ const personalInfo = [
     },
     {
         "name": "samak",
-        "level": "undergrad",
+        "level": "postgrad",
         "sem": 3
     },
     {
@@ -23,5 +23,5 @@ const personalInfo = [
 
 ]
 
-const moreInfo = personalInfo.filter((info)=>(info.sem >=2));
+const moreInfo = personalInfo.filter((info)=>(info.sem >=2 && info.level === "postgrad"));
 console.log(moreInfo);
