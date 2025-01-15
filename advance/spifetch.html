@@ -6,8 +6,28 @@
     <title>Document</title>
 </head>
 <body>
+    <img id="profile-pic" src="profile picture" style="width: 150px; height: 150px; border-radius: 50%">
     <script>
-        const reqUrl = 
+        const reqUrl ="https://api.github.com/users/hiteshchoudhary";
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET",reqUrl);
+        xhr.onreadystatechange = function(){
+            console.log(xhr.readyState);
+            if( xhr.readyState === 4 && xhr.status === 200){
+                
+                const data = JSON.parse(this.responseText);
+                console.log(typeof data);
+                console.log(data.avatar_url);
+
+                const img = document.getElementById("profile-pic");
+                img.src =data.avatar_url;
+
+            }
+            else if(xhr.readyState){
+                console.log("request failed with status:",xhr.status)
+            }
+        };
+        xhr.send();
     </script>
 </body>
 </html>
