@@ -60,3 +60,30 @@ promiseFour.then((user)=>{
 .catch(function(error){
     console.log(error);
 }).finally(() => console.log("The promise is either resolved or rejected"))
+
+
+
+const promiseFive = new Promise(function(resolve,reject){
+    setTimeout(function(){
+        let error = false
+        if (!error) {
+            resolve({username: "javascript", password: "123"})
+        } else {
+            reject('ERROR: JS went wrong')
+        }
+    },1000);
+})
+
+//Declares an asynchronous function.
+//Allows the use of await inside the function, which pauses the function execution until the promise resolves or rejects.
+async function consumePromiseFive(){
+    try {
+        const response = await promiseFive// Awaits the resolution of promiseFive
+        // resolution refers to the process by which a promise is completed, either successfully or unsuccessfully.
+        console.log(response);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+consumePromiseFive();
