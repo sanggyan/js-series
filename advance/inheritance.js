@@ -9,9 +9,9 @@ class user{
 }
 
 class teacher extends user {
-    constructor(username , course , password){
+    constructor(username, course , password){
         super(username);
-        this.email = course;
+        this.course = course;
         this.password = password;
     }
 
@@ -20,5 +20,10 @@ class teacher extends user {
     }
 }
 
-const teacher1 = teacher("sanggyan","comp sci" , "sangyanb.c");
-teacher1.addcourse();
+const teacher1 = new teacher("sanggyan","comp sci" , "sangyanb.c");
+teacher1.logMe();
+
+const pet = new user("samak");
+pet.logMe();
+
+console.log(teacher1 instanceof teacher); 
