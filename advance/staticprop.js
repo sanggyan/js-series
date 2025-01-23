@@ -21,4 +21,5 @@ class teacher extends user{
 
 const tea1 = new teacher("sanggyan","sangyanbc@gamil.com");
 
-tea1.lo
+tea1.logMe();
+tea1.createId();
